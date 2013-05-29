@@ -376,10 +376,17 @@ void UTFT::setXY(word x1, word y1, word x2, word y2)
 	if (orient==LANDSCAPE)
 	{
 		swap(word, x1, y1);
-		swap(word, x2, y2)
-		y1=disp_y_size-y1;
-		y2=disp_y_size-y2;
-		swap(word, y1, y2)
+		swap(word, x2, y2);
+		//x1=disp_x_size-x1;
+		//x2=disp_x_size-x2;
+		//swap(word, x1, x2);
+		
+		
+		//swap(word, x1, y1);
+		//swap(word, x2, y2);
+		//y1=disp_y_size-y1;
+		//y2=disp_y_size-y2;
+		//swap(word, y1, y2);
 	}
 
 	switch(display_model)

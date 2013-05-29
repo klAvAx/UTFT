@@ -133,7 +133,8 @@
 #define VGA_TRANSPARENT	0xFFFFFFFF
 
 #if defined(__AVR__)
-	#include "Arduino.h"
+        #include "WProgram.h"
+	//#include "Arduino.h"
 	#include "hardware/avr/HW_AVR_defines.h"
 #elif defined(__PIC32MX__)
 	#include "WProgram.h"

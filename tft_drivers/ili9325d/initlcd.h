@@ -5,7 +5,7 @@ case ILI9325D_16:
 	LCD_Write_COM_DATA(0x02, 0x0200); // set 1 line inversion  
 	LCD_Write_COM_DATA(0x03, 0x1030); // set GRAM write direction and BGR=1.  
 	LCD_Write_COM_DATA(0x04, 0x0000); // Resize register  
-	LCD_Write_COM_DATA(0x08, 0x0207); // set the back porch and front porch  
+	LCD_Write_COM_DATA(0x08, 0x0207); // set the back porch and front porch
 	LCD_Write_COM_DATA(0x09, 0x0000); // set non-display area refresh cycle ISC[3:0]  
 	LCD_Write_COM_DATA(0x0A, 0x0000); // FMARK function  
 	LCD_Write_COM_DATA(0x0C, 0x0000); // RGB interface setting  
@@ -25,7 +25,7 @@ case ILI9325D_16:
 	delay(50); // Delay 50ms  
 	LCD_Write_COM_DATA(0x13, 0x1200); // VDV[4:0] for VCOM amplitude  
 	LCD_Write_COM_DATA(0x29, 0x000A); // 04  VCM[5:0] for VCOMH  
-	LCD_Write_COM_DATA(0x2B, 0x000D); // Set Frame Rate  
+	LCD_Write_COM_DATA(0x2B, 0x000D); // Set Frame Rate
 	delay(50); // Delay 50ms  
 	LCD_Write_COM_DATA(0x20, 0x0000); // GRAM horizontal Address  
 	LCD_Write_COM_DATA(0x21, 0x0000); // GRAM Vertical Address  
@@ -46,7 +46,7 @@ case ILI9325D_16:
 	LCD_Write_COM_DATA(0x52, 0x0000); // Vertical GRAM Start Address  
 	LCD_Write_COM_DATA(0x53, 0x013F); // Vertical GRAM Start Address  
 	LCD_Write_COM_DATA(0x60, 0xA700); // Gate Scan Line  
-	LCD_Write_COM_DATA(0x61, 0x0001); // NDL,VLE, REV   
+	LCD_Write_COM_DATA(0x61, 0x0001); // NDL,VLE, REV
 	LCD_Write_COM_DATA(0x6A, 0x0000); // set scrolling line  
 	//-------------- Partial Display Control ---------//  
 	LCD_Write_COM_DATA(0x80, 0x0000);  
