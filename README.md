@@ -9,6 +9,7 @@ I take no responsibility for bugs or other stuff except parts i modified.<br />
 <br />
 This modification has:
 <ul>
+<li>Divider is now read from font file (5th byte) and should support any divider</li>
 <li>Rotated screen by 180 degress</li>
 <li>Fonts are mirrored (and must be mirrored) in x and y</li>
 <li>Pictures are also mirrored in x and y</li>
@@ -17,10 +18,6 @@ Current Bugs:
 <ul>
 <li>If VGA_TRANSPARENT is used for background color fonts get inverted horizontaly</li>
 <li>Text rotation also inverts the fonts in various directions</li>
-</ul>
-Future improvements:
-<ul>
-<li>Change text divider from 8 to 4 or 6</li>
 </ul>
 <br />
 <br />
