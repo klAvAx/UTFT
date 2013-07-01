@@ -894,7 +894,7 @@ void UTFT::printChar(byte c, int x, int y)
 		{
 			setXY(x,y,x+cfont.x_size-1,y+cfont.y_size-1);
 	  
-			temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+4;
+			temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+5;
 			for(j=0;j<((cfont.x_size/8)*cfont.y_size);j++)
 			{
 				ch=pgm_read_byte(&cfont.font[temp]);
@@ -914,15 +914,15 @@ void UTFT::printChar(byte c, int x, int y)
 		}
 		else
 		{
-			temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+4;
+			temp=((c-cfont.offset)*((cfont.x_size/cfont.divider)*cfont.y_size))+5;
 
-			for(j=0;j<((cfont.x_size/8)*cfont.y_size);j+=(cfont.x_size/8))
+			for(j=0;j<((cfont.x_size/cfont.divider)*cfont.y_size);j+=(cfont.x_size/cfont.divider))
 			{
-				setXY(x,y+(j/(cfont.x_size/8)),x+cfont.x_size-1,y+(j/(cfont.x_size/8)));
-				for (int zz=(cfont.x_size/8)-1; zz>=0; zz--)
+				setXY(x,y+(j/(cfont.x_size/cfont.divider)),x+cfont.x_size-1,y+(j/(cfont.x_size/cfont.divider)));
+				for (int zz=(cfont.x_size/cfont.divider)-1; zz>=0; zz--)
 				{
 					ch=pgm_read_byte(&cfont.font[temp+zz]);
-					for(i=0;i<8;i++)
+					for(i=0;i<cfont.divider;i++)
 					{   
 						if((ch&(1<<i))!=0)   
 						{
@@ -934,13 +934,13 @@ void UTFT::printChar(byte c, int x, int y)
 						}   
 					}
 				}
-				temp+=(cfont.x_size/8);
+				temp+=(cfont.x_size/cfont.divider);
 			}
 		}
 	}
 	else
 	{
-		temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+4;
+		temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+5;
 		for(j=0;j<cfont.y_size;j++) 
 		{
 			for (int zz=0; zz<(cfont.x_size/8); zz++)
@@ -974,7 +974,7 @@ void UTFT::rotateChar(byte c, int x, int y, int pos, int deg)
 
 	cbi(P_CS, B_CS);
 
-	temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+4;
+	temp=((c-cfont.offset)*((cfont.x_size/8)*cfont.y_size))+5;
 	for(j=0;j<cfont.y_size;j++) 
 	{
 		for (int zz=0; zz<(cfont.x_size/8); zz++)
@@ -1152,6 +1152,7 @@ void UTFT::setFont(uint8_t* font)
 	cfont.y_size=fontbyte(1);
 	cfont.offset=fontbyte(2);
 	cfont.numchars=fontbyte(3);
+	cfont.divider=fontbyte(4);
 }
 
 uint8_t* UTFT::getFont()
@@ -1167,6 +1168,11 @@ uint8_t UTFT::getFontXsize()
 uint8_t UTFT::getFontYsize()
 {
 	return cfont.y_size;
+}
+
+uint8_t UTFT::getFontDivider()
+{
+    return cfont.divider;
 }
 
 void UTFT::drawBitmap(int x, int y, int sx, int sy, bitmapdatatype data, int scale)

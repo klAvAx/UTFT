@@ -151,6 +151,7 @@ struct _current_font
 	uint8_t y_size;
 	uint8_t offset;
 	uint8_t numchars;
+	uint8_t divider;
 };
 
 class UTFT
@@ -184,6 +185,7 @@ class UTFT
 		uint8_t* getFont();
 		uint8_t getFontXsize();
 		uint8_t getFontYsize();
+		uint8_t getFontDivider();
 		void drawBitmap(int x, int y, int sx, int sy, bitmapdatatype data, int scale=1);
 		void drawBitmap(int x, int y, int sx, int sy, bitmapdatatype data, int deg, int rox, int roy);
 		void lcdOff();
