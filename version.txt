@@ -32,3 +32,5 @@ Version:
 				fixed a bug in printNumF()
 	2.4	11 May 2013  -  added basic support for multiple display modules from Coldtears
 	2.41	12 May 2013  -  made some changes to facilitate the use of add-on libraries
+	2.42	17 Jun 2013  -  fixed a small bug in drawBitmap()
+				fixed a bug in the 16-bit Arduino Due driver

@@ -188,8 +188,8 @@ void UTFT::_set_direction_registers(byte mode)
 			REG_PIOC_OER=0x000FF000;
 #else
 		REG_PIOA_OER=0x0000c000; //PA14,PA15 enable
-		REG_PIOB_OER=0x40000000; //PB26 enable
-		REG_PIOD_OER=0x00000064f; //PD0-3,PD6,PD9-10 enable
+		REG_PIOB_OER=0x04000000; //PB26 enable
+		REG_PIOD_OER=0x0000064f; //PD0-3,PD6,PD9-10 enable
 		if (mode==16)
 		{
 			REG_PIOA_OER=0x00000080; //PA7 enable

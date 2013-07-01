@@ -1200,7 +1200,7 @@ void UTFT::drawBitmap(int x, int y, int sx, int sy, bitmapdatatype data, int sca
 			for (ty=0; ty<sy; ty++)
 			{
 				setXY(x, y+ty, x+sx-1, y+ty);
-				for (tx=sx; tx>=0; tx--)
+				for (tx=sx-1; tx>=0; tx--)
 				{
 					col=pgm_read_word(&data[(ty*sx)+tx]);
 					LCD_Write_DATA(col>>8,col & 0xff);
@@ -1235,7 +1235,7 @@ void UTFT::drawBitmap(int x, int y, int sx, int sy, bitmapdatatype data, int sca
 				for (tsy=0; tsy<scale; tsy++)
 				{
 					setXY(x, y+(ty*scale)+tsy, x+((sx*scale)-1), y+(ty*scale)+tsy);
-					for (tx=sx; tx>=0; tx--)
+					for (tx=sx-1; tx>=0; tx--)
 					{
 						col=pgm_read_word(&data[(ty*sx)+tx]);
 						for (tsx=0; tsx<scale; tsx++)
